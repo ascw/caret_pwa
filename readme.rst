@@ -1,4 +1,4 @@
-*NOTE: Chrome Apps no longer run on Chrome OS, so Caret has been converted to a Progressive Web App (PWA). See "Moving from the Chrome App" below. This conversion was done by claude sonnet and deepseek v4.1 flash. The agents only convert, and original author (thomaswilburn)'s notes were kept inside this folder.*
+*NOTE: Chrome Apps no longer run on Chrome OS, so Caret has been converted to a Progressive Web App (PWA). See "Moving from the Chrome App" below. This conversion was done by claude sonnet and deepseek v4.1 flash. The agents only convert, and do nothing else. This conversion is for my use only so there shouldn't be any updates.*
 
 Caret
 =====

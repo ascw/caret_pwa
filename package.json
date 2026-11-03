@@ -1,0 +1,19 @@
+{
+  "name": "Caret",
+  "version": "2.0.0",
+  "scripts": {
+    "build": "grunt less && node scripts/precache.js",
+    "start": "node scripts/serve.js"
+  },
+  "dependencies": {
+    "grunt": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-cli": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thomaswilburn/Caret.git"
+  },
+  "license": "GPL-3.0"
+}

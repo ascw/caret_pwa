@@ -1,0 +1,134 @@
+/* Like dialogs, menus always are black-on-white */
+
+.toolbar {
+  padding: 0;
+  margin: 0;
+  color: @foreground;
+  line-height: 30px;
+  list-style-type: none;
+  z-index: 99;
+  
+  hr {
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, .2);
+    margin: 4px 8px;
+  }
+
+  .shortcut {
+    color: #444;
+    margin-left: 1em;
+  }
+
+  //nested menus (default)
+  li {
+    transition: opacity .2s;
+    display: flex;
+    padding: 4px 8px;
+    justify-content: space-between;
+    position: relative;
+
+    &:hover:not(.top), &.active {
+      color: black;
+      background: #EEE;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid @accent;
+      outline-offset: -2px;
+    }
+
+    &.parent:hover, &.parent.open, &.active {
+
+      & > .menu {
+        display: block;
+      }
+
+    }
+
+    .menu {
+      display: none;
+      min-width: 250px;
+      max-height: calc(100vh - 42px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      position: absolute;
+      margin-left: 90%;
+      margin-top: -2em;
+      z-index: 999;
+      color: black;
+      background: white;
+      padding: 4px 0;
+      line-height: 1.4;
+      white-space: nowrap;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, .2);
+      // border-left: 2px solid @accent;
+    }
+
+    // Submenus are positioned against the titlebar in JS so they can escape
+    // the scrollable first-level menu and stay inside the window.
+    &.parent > .menu {
+      position: fixed;
+      margin-left: 0;
+      margin-top: 0;
+      max-height: calc(100vh - 16px);
+    }
+
+    &.parent::after {
+      content: "...";
+      font-weight: bold;
+      position: absolute;
+      right: 4px;
+      top: 0;
+      color: #444;
+    }
+
+  }
+
+  //base-level menus
+  & > li {
+    display: inline-block;
+    padding: 4px 8px;
+    line-height: initial;
+
+    & > .menu {
+      margin-left: -8px;
+      margin-top: 4px;
+
+      &.align-right {
+        left: auto;
+        right: -8px;
+        margin-left: 0;
+      }
+    }
+  }
+  
+}
+
+/* right-click menus for tabs and project folders (see js/ui/contextMenus.js) */
+
+.context-menu {
+  position: fixed;
+  z-index: 9999;
+  min-width: 180px;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  color: black;
+  background: white;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, .2);
+
+  li {
+    padding: 4px 16px;
+    cursor: default;
+
+    &:hover {
+      background: #EEE;
+    }
+  }
+}
